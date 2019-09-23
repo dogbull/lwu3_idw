@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+RESOLUTION=$1
+LEFT=$2
+BOTTOM=$3
+RIGHT=$4
+TOP=$5
+OUTPUT=$6
+
+WIDTH=$(python -c "print(int(abs(($RIGHT - $LEFT) / $RESOLUTION)))")
+HEIHGT=$(python -c "print(int(abs(($BOTTOM - $TOP) / $RESOLUTION)))")
+
+gdal_grid \
+    -q \
+    -of 'GTiff' \
+    -a_srs epsg:4326 \
+    -outsize $WIDTH $HEIHGT \
+    -zfield value \
+    -txe $LEFT $RIGHT \
+    -tye $TOP $BOTTOM \
+    data.vrt \
+    $OUTPUT
