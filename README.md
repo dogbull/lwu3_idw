@@ -52,3 +52,26 @@ bash run $resolution $left $bottom $right $top $output
 출력 결과
 
 ![result.png](capture1.png)
+
+
+
+#### 이미지 출력
+
+##### HTTP Request를 이용한 이미지 파일 저장
+
+```bash
+curl "http://10.8.11.254/mapserver/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&map=/tmp/test.map&data=/tmp/abc.tiff&layers=default,SGG_OUTLINE&WIDTH=2048&HEIGHT=2048&CRS=EPSG%3A3857&STYLES=&BBOX=13914936.3491592,3895303.96339389,14471533.8031256,4709425.8128701" > output.png
+```
+
+
+#### 기타 명령
+
+
+##### 마스킹
+
+`/tmp/sgg.simplified.5.shp` 파일을 이용하여 마스킹을 수행하고 마스킹된 값을 `-9999`로 채웁니다. `-9999` 값은 nodata가 됩니다.
+
+```bash
+gdalwarp -overwrite -cutline /tmp/sgg.simplified.5.shp /tmp/abc.tiff /tmp/abc2.tiff -crop_to_cutline -dstnodata -9999
+```
+
