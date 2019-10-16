@@ -1,0 +1,62 @@
+LAYER
+    NAME "SGG_MASK"
+    STATUS OFF
+    TYPE POLYGON
+    PROJECTION
+        "init=epsg:5179"
+    END
+    VALIDATION
+        "default_sig_cd" ""
+        "sig_cd" ".*"
+        "default_shp_path" "/tmp/sgg.simplified.5.shp"
+        "shp_path" ".*"
+    END
+
+    DATA "/tmp/sgg.simplified.5.shp"
+    #FILTERITEM "SIG_CD"
+    #FILTER /^%sig_cd%*.?$/
+    CLASS
+        STYLE
+            # BACKGROUNDCOLOR 255 0 0
+            COLOR 0 0 0
+        END
+    END
+END
+
+LAYER
+    NAME "SGG_OUTLINE"
+    STATUS OFF
+    TYPE LINE
+    PROJECTION
+        "init=epsg:5179"
+    END
+    VALIDATION
+        "default_sig_cd" ""
+        "sig_cd" ".*"
+        "default_shp_path" "/tmp/sgg.simplified.5.shp"
+        "shp_path" ".*"
+    END
+
+    DATA "/tmp/sgg.simplified.5.shp"
+    #FILTERITEM "SIG_CD"
+    #FILTER /^%sig_cd%*.?$/
+LABELITEM "SIGUNGU_NM"
+    CLASS
+        STYLE
+            COLOR 0 0 0
+            WIDTH 1
+        END
+LABEL
+  COLOR  150 150 150
+  OUTLINECOLOR 255 255 255
+  FONT "NanumGothic"
+  TYPE truetype
+  SIZE 26
+  #ANGLE [MYANGLE]
+  POSITION AUTO
+  PARTIALS FALSE
+END
+
+    END
+END
+

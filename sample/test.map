@@ -1,0 +1,372 @@
+MAP
+    NAME "CUSTARDX tmin"
+
+    WEB
+        METADATA
+            "wms_title" "WMS tmin Server"
+            "wms_srs" "EPSG:4326 EPSG:5174 EPSG:3857"
+            "wms_enable_request" "*"
+        END
+    END
+
+    PROJECTION
+        "init=epsg:4326"
+    END
+
+    FONTSET fontset.txt
+    INCLUDE "sgg.map"
+
+    LAYER
+        VALIDATION
+            "data" "\w+"
+        END
+        PROJECTION
+            "init=epsg:4326"
+        END
+        NAME "default"
+        DATA "%data%"
+        STATUS ON
+        TYPE RASTER
+        PROCESSING "CLOSE_CONNECTION=ALWAYS"
+        PROCESSING "SCALE=-50,50"
+        PROCESSING "SCALE_BUCKETS=10000"
+        #MASK "SGG_MASK"
+        
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] < -24.99 )
+            STYLE
+                COLOR "#000000"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -24.99 AND [pixel] < -19.99 )
+            STYLE
+                COLOR "#E5E5E5"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -19.99 AND [pixel] < -14.99 )
+            STYLE
+                COLOR "#CCCCCC"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -14.99 AND [pixel] < -12.99 )
+            STYLE
+                COLOR "#B2B2B2"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -12.99 AND [pixel] < -11.99 )
+            STYLE
+                COLOR "#909090"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -11.99 AND [pixel] < -10.99 )
+            STYLE
+                COLOR "#6D6D6D"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -10.99 AND [pixel] < -9.99 )
+            STYLE
+                COLOR "#399EA6"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -9.99 AND [pixel] < -8.99 )
+            STYLE
+                COLOR "#05CEDE"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -8.99 AND [pixel] < -7.99 )
+            STYLE
+                COLOR "#04E6EF"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -7.99 AND [pixel] < -6.99 )
+            STYLE
+                COLOR "#02FDFF"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -6.99 AND [pixel] < -5.99 )
+            STYLE
+                COLOR "#61FEFF"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -5.99 AND [pixel] < -4.99 )
+            STYLE
+                COLOR "#BFFFFF"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -4.99 AND [pixel] < -3.99 )
+            STYLE
+                COLOR "#7C98ED"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -3.99 AND [pixel] < -2.99 )
+            STYLE
+                COLOR "#3930DB"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -2.99 AND [pixel] < -1.99 )
+            STYLE
+                COLOR "#1D47DE"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -1.99 AND [pixel] < -0.99 )
+            STYLE
+                COLOR "#005DE1"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= -0.99 AND [pixel] < 0.01 )
+            STYLE
+                COLOR "#0078EE"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 0.01 AND [pixel] < 1.01 )
+            STYLE
+                COLOR "#0093FA"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 1.01 AND [pixel] < 2.01 )
+            STYLE
+                COLOR "#62BCFD"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 2.01 AND [pixel] < 3.01 )
+            STYLE
+                COLOR "#C3E4FF"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 3.01 AND [pixel] < 4.01 )
+            STYLE
+                COLOR "#20A903"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 4.01 AND [pixel] < 5.01 )
+            STYLE
+                COLOR "#3AB921"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 5.01 AND [pixel] < 6.01 )
+            STYLE
+                COLOR "#54C93F"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 6.01 AND [pixel] < 7.01 )
+            STYLE
+                COLOR "#88E87A"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 7.01 AND [pixel] < 8.01 )
+            STYLE
+                COLOR "#95F03D"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 8.01 AND [pixel] < 9.01 )
+            STYLE
+                COLOR "#A1F700"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 9.01 AND [pixel] < 10.01 )
+            STYLE
+                COLOR "#C1FB24"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 10.01 AND [pixel] < 11.01 )
+            STYLE
+                COLOR "#E1FF47"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 11.01 AND [pixel] < 12.01 )
+            STYLE
+                COLOR "#F0FE79"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 12.01 AND [pixel] < 13.01 )
+            STYLE
+                COLOR "#FFFDAB"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 13.01 AND [pixel] < 14.01 )
+            STYLE
+                COLOR "#FBE557"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 14.01 AND [pixel] < 15.01 )
+            STYLE
+                COLOR "#F7CC03"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 15.01 AND [pixel] < 16.01 )
+            STYLE
+                COLOR "#FBD05A"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 16.01 AND [pixel] < 17.01 )
+            STYLE
+                COLOR "#FFD3B0"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 17.01 AND [pixel] < 18.01 )
+            STYLE
+                COLOR "#FDB167"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 18.01 AND [pixel] < 19.01 )
+            STYLE
+                COLOR "#FA8F1D"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 19.01 AND [pixel] < 20.01 )
+            STYLE
+                COLOR "#EF6E0F"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 20.01 AND [pixel] < 21.01 )
+            STYLE
+                COLOR "#E44D00"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 21.01 AND [pixel] < 22.01 )
+            STYLE
+                COLOR "#F14C44"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 22.01 AND [pixel] < 23.01 )
+            STYLE
+                COLOR "#FD4B87"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 23.01 AND [pixel] < 24.01 )
+            STYLE
+                COLOR "#FD7BA0"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 24.01 AND [pixel] < 25.01 )
+            STYLE
+                COLOR "#FCAAB8"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 25.01 AND [pixel] < 26.01 )
+            STYLE
+                COLOR "#FEBDC3"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 26.01 AND [pixel] < 27.01 )
+            STYLE
+                COLOR "#FFD0CE"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 27.01 AND [pixel] < 28.01 )
+            STYLE
+                COLOR "#FF8D8B"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 28.01 AND [pixel] < 29.01 )
+            STYLE
+                COLOR "#FF4948"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 29.01 AND [pixel] < 30.01 )
+            STYLE
+                COLOR "#F32525"
+            END
+        END
+        CLASS
+            NAME ""
+            EXPRESSION ( [pixel] >= 30.01 )
+            STYLE
+                COLOR "#F32525"
+            END
+        END
+    END
+END
