@@ -1,4 +1,3 @@
-.idea
-*.tiff
+output
 ./data/output.png
 ./data/output.tiff

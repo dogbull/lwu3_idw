@@ -14,7 +14,63 @@ MAP
     END
 
     FONTSET fontset.txt
-    INCLUDE "sgg.map"
+
+    LAYER
+        NAME "SGG_MASK"
+        STATUS OFF
+        TYPE POLYGON
+        PROJECTION
+            "init=epsg:5179"
+        END
+        VALIDATION
+            "default_sig_cd" ""
+            "sig_cd" ".*"
+            "default_shp_path" "/data/sgg.simplified.5.shp"
+            "shp_path" ".*"
+        END
+
+        DATA "/data/sgg.simplified.5.shp"
+        CLASS
+            STYLE
+                # BACKGROUNDCOLOR 255 0 0
+                COLOR 0 0 0
+            END
+        END
+    END
+
+    LAYER
+        NAME "SGG_OUTLINE"
+        STATUS OFF
+        TYPE POLYGON
+        PROJECTION
+            "init=epsg:5179"
+        END
+        VALIDATION
+            "default_sig_cd" ""
+            "sig_cd" ".*"
+            "default_shp_path" "/data/sgg.simplified.5.shp"
+            "shp_path" ".*"
+        END
+
+        DATA "/data/sgg.simplified.5.shp"
+        LABELITEM "SIGUNGU_NM"
+        CLASS
+            STYLE
+                OUTLINECOLOR 0 0 0
+                OUTLINEWIDTH 1
+            END
+            LABEL
+                FONT "NanumGothic"
+                COLOR  0 0 0
+                OUTLINECOLOR 255 255 255
+                OUTLINEWIDTH 2
+                TYPE TRUETYPE
+                SIZE 10
+                ANTIALIAS TRUE
+                POSITION CC
+            END
+        END
+    END
 
     LAYER
         VALIDATION
@@ -30,7 +86,7 @@ MAP
         PROCESSING "CLOSE_CONNECTION=ALWAYS"
         PROCESSING "SCALE=-50,50"
         PROCESSING "SCALE_BUCKETS=10000"
-        #MASK "SGG_MASK"
+        MASK "SGG_MASK"
         
         CLASS
             NAME ""

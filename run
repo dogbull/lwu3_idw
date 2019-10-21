@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-RESOLUTION=$1
-LEFT=$2
-BOTTOM=$3
-RIGHT=$4
-TOP=$5
-OUTPUT=$6
+RESOLUTION=0.0025
+LEFT=125.0
+BOTTOM=33.0
+RIGHT=130.0
+TOP=38.7
+DATA=/data
+OUTPUT=output.tiff
+
+
+14471533.8031256 4679425.8128701
+
+
+cd "${DATA}" || exit
 
 WIDTH=$(python -c "print(int(abs(($RIGHT - $LEFT) / $RESOLUTION)))")
 HEIHGT=$(python -c "print(int(abs(($BOTTOM - $TOP) / $RESOLUTION)))")
@@ -18,5 +25,9 @@ gdal_grid \
     -zfield value \
     -txe $LEFT $RIGHT \
     -tye $TOP $BOTTOM \
-    data.vrt \
+    ${DATA}/data.vrt \
     $OUTPUT
+
+apache2ctl -D BACKGROUND
+
+curl "http://localhost/mapserver/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&map=/data/default.map&data=/data/output.tiff&layers=default,SGG_OUTLINE&WIDTH=1536&HEIGHT=2048&CRS=EPSG%3A3857&STYLES=&BBOX=13914936.3491592,3895303.96339389,14471533.8031256,4679425.8128701" > output.png
